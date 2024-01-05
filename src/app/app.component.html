@@ -1,6 +1,9 @@
 <div>
-  <app-list></app-list>
+  <div>
+    <app-list></app-list>
+  </div>
+  <div>
+    <app-details></app-details>
+  </div>
 </div>
-<div>
-  <app-details></app-details>
-</div>
+<app-loader *ngIf="isLoading"></app-loader>

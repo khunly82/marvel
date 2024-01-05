@@ -1,6 +1,9 @@
 :host {
-    display: flex;
-    > * {
-        width: 50%;
+    >div {
+
+        display: flex;
+        > * {
+            width: 50%;
+        }
     }
 }

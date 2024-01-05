@@ -2,8 +2,16 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { marvelKeyInterceptor } from './interceptors/marvel-key.interceptor';
+import { loaderInterceptor } from './interceptors/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient()]
+  providers: [
+    provideRouter(routes), 
+    provideHttpClient(withInterceptors([
+      marvelKeyInterceptor,
+      loaderInterceptor
+    ])),
+  ]
 };
