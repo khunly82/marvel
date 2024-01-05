@@ -1,0 +1,28 @@
+<div>
+    <form (ngSubmit)="search()">
+        <input type="text" placeholder="rechercher" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+        <button>Rechercher</button>
+    </form>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of characters()?.data?.results; track item.id) {
+            <tr>
+                <td>{{ item.id }}</td>
+                <td><img [src]="item.thumbnail.path + '.' + item.thumbnail.extension"></td>
+                <td>{{ item.name }}</td>
+                <td><button>Voir les détails</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+{{ characters|json }}
