@@ -1,1 +1,7 @@
-<p>details works!</p>
+@if(character()) {
+    <div>
+        <h3>Nom : {{ character()?.name }}</h3>
+        <img [src]="character()?.thumbnail?.path + '.' + character()?.thumbnail?.extension" >
+        <p>{{ character()?.description }}</p>
+    </div>
+}

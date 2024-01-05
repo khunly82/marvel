@@ -47,7 +47,25 @@ export class CharacterService {
     }
 
     findById(id: number) {
+        const ts = new Date().getTime() / 1000;
 
+        let value: any = {
+            ts: ts,
+            apikey: PUB_KEY,
+            hash: this.hashKey(ts),
+        }
+
+        const params = new HttpParams({
+            fromObject: value
+        })
+
+        this._httpClient.get<CharacterResult>(BASE_URL + '/' + id, { params })
+            .subscribe(data => {
+                const c = data.data.results.find(_ => true)
+                if(c) {
+                    this._selectedCharacter.set(c)
+                }
+            })
     }
 
     private hashKey(ts: number) {
