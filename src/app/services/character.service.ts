@@ -3,7 +3,7 @@ import { Injectable, Signal, WritableSignal, signal } from "@angular/core";
 import { md5 } from "js-md5";
 import { Character, CharacterResult } from "../models/character.model";
 
-const BASE_URL = 'http://gateway.marvel.com/v1/public/characters';
+const BASE_URL = 'https://gateway.marvel.com/v1/public/characters';
 // ?ts=${ts}&apikey=${this.publicKey}&hash=${hash};
 
 @Injectable({ providedIn: 'root' })
